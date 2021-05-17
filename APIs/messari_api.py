@@ -4,6 +4,7 @@ import requests
 base_url = 'https://data.messari.io'
 
 # All requests to Messari API can be made through this class
+# API documentation found here: https://messari.io/api/docs
 class Messari:
 
     def __init__(self, key=None):
@@ -30,6 +31,12 @@ class Messari:
         '''
         url = base_url + endpoint
         r = self.session.request(method, url, params=params, data=data, timeout=10)
+        '''
+        Uncomment the below if troubleshooting:
+        print("URL: ", url)
+        print("Params: ", params)
+        print("Data: ", data)
+        '''
         return r.json()
 
     def _get(self, endpoint, params=None):
@@ -183,6 +190,12 @@ class Messari:
         - metric_id: (str) Specifies which timeseries will be returned
         - query_params: (dict) Dictionary of query parameters to filter the list
         '''
+        params = []
+        for key,value in query_params.items():
+            params.append(f'{key}={value}')
+
+        params = '&'.join(params)
+        
         path = f'api/v1/markets/{market_key}/metrics/{metric_id}/time-series'
         return self._get(path, params=query_params)
 

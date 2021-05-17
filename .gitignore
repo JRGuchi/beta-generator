@@ -1,3 +1,6 @@
 .DS_Store
-*.pyc
 no-nos.yaml
+pytest.py
+
+*.pickle
+*.pyc
