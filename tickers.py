@@ -16,7 +16,7 @@ messari = Messari(messari_api_key)
 # Pull asset tickers you are interested in
 ticker_list = []
 def get_all_assets():    
-    pages = 10  # I only care about the top 200 assets for now
+    pages = 2  # Only grabbing the top 40 assets for now to avoid future rate limiting
     for i in range(pages):
         query_params = {
             'page': i+1,
