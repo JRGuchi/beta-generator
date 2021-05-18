@@ -24,7 +24,10 @@ def get_all_assets():
         }
         assets_dict = messari.get_all_assets(**query_params)
         for asset in assets_dict['data']:
-            ticker_list.append(asset['symbol'])
+            if (asset['symbol'] == 'BTT' or asset['symbol'] == 'COIN'): # We are omitting these symbols as they are not returning full time series
+                pass
+            else:
+                ticker_list.append(asset['symbol'])
 
     with open('ticker_list.pickle', 'wb') as f: # We will unpickle and reference these tickers throughout
         pickle.dump(ticker_list, f)
