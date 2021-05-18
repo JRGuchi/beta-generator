@@ -31,7 +31,7 @@ with open('metric_id_list.pickle', 'wb') as f: # We will unpickle and reference 
     pickle.dump(metric_id_list, f)
 
 # Loop through our list of metric IDs and create directories for each
-def create_directories():
+def create_metric_directories():
     
     if not os.path.exists('time_series_dfs'):
         os.makedirs('time_series_dfs')
@@ -42,4 +42,4 @@ def create_directories():
         else:
             pass
 
-create_directories()
+create_metric_directories()
