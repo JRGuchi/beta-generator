@@ -2,5 +2,7 @@
 no-nos.yaml
 pytest.py
 
+time_series_dfs/
+
 *.pickle
 *.pyc
