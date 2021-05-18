@@ -1,4 +1,3 @@
-from datetime import date
 import pickle
 import pprint
 import yaml
@@ -14,13 +13,6 @@ messari_api_key = uhoh['messari_api_key']
 # Begin session
 messari = Messari(messari_api_key)
 
-# Uncomment the below for a refresher on available time series metric IDs
-'''
-metric_ids = messari.list_asset_timeseries_metric_ids()
-for data in metric_ids['data']['metrics']:
-    pprint.pprint(data)
-'''
-
 # Pull asset tickers you are interested in
 ticker_list = []
 def get_all_assets():    
@@ -34,7 +26,7 @@ def get_all_assets():
         for asset in assets_dict['data']:
             ticker_list.append(asset['symbol'])
 
-    with open('ticker_list.pickle', 'wb') as f: # We will unpickle and reference these puppies later
+    with open('ticker_list.pickle', 'wb') as f: # We will unpickle and reference these tickers throughout
         pickle.dump(ticker_list, f)
 
     print(ticker_list)
