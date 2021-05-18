@@ -30,7 +30,7 @@ metric_id_list = ['price']
 with open('metric_id_list.pickle', 'wb') as f: # We will unpickle and reference these metrics throughout
     pickle.dump(metric_id_list, f)
 
-# Loop through the tickers and create directories for each metric
+# Loop through our list of metric IDs and create directories for each
 def create_directories():
     
     if not os.path.exists('time_series_dfs'):
