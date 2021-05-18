@@ -37,8 +37,8 @@ def create_metric_directories():
         os.makedirs('time_series_dfs')
 
     for metric in metric_id_list:
-        if not os.path.exists(f'time_series_dfs/{metric}.csv'):
-            os.makedirs(f'time_series_dfs/{metric}.csv')
+        if not os.path.exists(f'time_series_dfs/{metric}'):
+            os.makedirs(f'time_series_dfs/{metric}')
         else:
             pass
 
